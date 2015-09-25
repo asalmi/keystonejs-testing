@@ -29,3 +29,8 @@ node_modules
 
 # Ignore .DS_Store files on OS X
 .DS_Store
+
+# Ignore all the other than Keystone custom codes
+node_modules
+server.js
+index.html
