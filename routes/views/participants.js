@@ -7,7 +7,7 @@ exports = module.exports = function(req, res) {
   var locals = res.locals;
   
   // Init locals
-  locals.section = 'participant';
+  locals.section = 'participants';
   locals.filters = {
     category: req.params.category
   };
@@ -15,12 +15,11 @@ exports = module.exports = function(req, res) {
     posts: [],
     categories: []
   };
-    
   
   // Load the posts
   view.on('init', function(next) {
     
-    var q = keystone.list('Participant').paginate({
+    var q = keystone.list('Site').paginate({
         page: req.query.page || 1,
         perPage: 10,
         maxPages: 10
@@ -34,7 +33,7 @@ exports = module.exports = function(req, res) {
     }
     
     q.exec(function(err, results) {
-      locals.data.participant = results;
+      locals.data.posts = results;
       next(err);
     });
     

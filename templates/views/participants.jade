@@ -2,7 +2,7 @@ extends ../layouts/default
 
 mixin post(post)
   .post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-    h2: a(href='/blog/post/' + post.slug)= post.title
+    h2: a(href='/participant/' + post.slug)= post.title
     p.lead.text-muted Posted 
       if post.publishedDate
         | on #{post._.publishedDate.format('MMMM Do, YYYY')} 
@@ -18,7 +18,7 @@ mixin post(post)
         | by #{post.author.name.first}
     p!= post.content.brief
     if post.content.extended
-      p.read-more: a(href='/blog/post/' + post.slug) Read more...
+      p.read-more: a(href='/participant/' + post.slug) Read more...
 
 block intro
   .container
@@ -30,7 +30,7 @@ block content
       if filters.category && !data.category
         h3.text-muted Invalid Category.
       else
-        if data.participant.results.length
+        if data.posts.results.length
           if data.posts.totalPages > 1
             h4.text-weight-normal Showing 
               strong #{data.posts.first}
@@ -40,9 +40,9 @@ block content
               strong #{data.posts.total}
               |  posts.
           else
-            h4.text-weight-normal Showing #{utils.plural(data.participant.results.length, '* post')}.
+            h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* participant')}.
           .blog
-            each post in data.participant.results
+            each post in data.posts.results
               +post(post)
           
           if data.posts.totalPages > 1
