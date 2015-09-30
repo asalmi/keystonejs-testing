@@ -10,7 +10,7 @@ block content
       else
         header
           h1= data.post.title
-          // h5 Posted
+          h5 Posted 
             if data.post.publishedDate
               | on #{data.post._.publishedDate.format('MMMM Do, YYYY')} 
             if data.post.categories && data.post.categories.length
@@ -31,3 +31,9 @@ block content
               li Category: #{data.post.category}
         .post
           != data.post.content.full
+    article
+      h3 Reviews
+      each review in data.reviews
+        p
+          = review.title
+        

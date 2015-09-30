@@ -11,7 +11,7 @@ exports = module.exports = function(req, res) {
     post: req.params.post
   };
   locals.data = {
-    posts: []
+    reviews: []
   };
   
   // Load the current post
@@ -20,7 +20,7 @@ exports = module.exports = function(req, res) {
     var q = keystone.list('Site').model.findOne({
       state: 'published',
       slug: locals.filters.post
-    }).populate('author categories');
+    }).populate('author');
     
     q.exec(function(err, result) {
       locals.data.post = result;
@@ -28,19 +28,22 @@ exports = module.exports = function(req, res) {
     });
     
   });
-  
-  // Load other posts
+
   view.on('init', function(next) {
     
-    var q = keystone.list('Post').model.find().where('state', 'published').sort('-publishedDate').populate('author').limit('4');
-    
-    q.exec(function(err, results) {
-      locals.data.posts = results;
+    //keystone.list('Site').model.find().populate('all_reviews').exec(function(err, results) {
+    keystone.list('Review').model.find().where('site_reviewed', locals.data.post.id ).sort('name').exec(function(err, results) {  
+
+      locals.data.reviews = results;
+
+      console.log(results);
+
       next(err);
+
     });
     
   });
-  
+    
   // Render the view
   view.render('site');
   
