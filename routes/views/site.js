@@ -36,7 +36,7 @@ exports = module.exports = function(req, res) {
 
       locals.data.reviews = results;
 
-      console.log(results);
+      //console.log(results);
 
       next(err);
 

@@ -34,6 +34,6 @@ block content
     article
       h3 Reviews
       each review in data.reviews
-        p
-          = review.title
-        
+        div: .well
+          h4= review.title
+          != review.content.extended

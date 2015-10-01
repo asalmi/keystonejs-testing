@@ -18,7 +18,7 @@ Site.add({
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	category: { type: String },
 	site_url: { type: Types.Url, label: 'Site URL' },
-	all_reviews: { type: Types.Relationship, ref: 'Review', index: true },
+	//all_reviews: { type: Types.Relationship, ref: 'Review', index: true },
 	content: {
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
 	}
@@ -37,7 +37,7 @@ Site.schema.virtual('content.full').get(function() {
  * Relationships
  */
 
-Site.relationship({ ref: 'Review', path: 'reviews', refPath: 'site_reviewed' });
+//Site.relationship({ ref: 'Review', path: 'reviews', refPath: 'site_reviewed' });
 
 
 Site.defaultColumns = 'title, state|20%, author|20%, publishedDate|20%';
