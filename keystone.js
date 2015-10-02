@@ -25,7 +25,10 @@ keystone.init({
 	'auth': true,
 	'user model': 'User',
 
-	'cloudinary config': 'cloudinary://288452951436584:eimuxfiKQUUqkyr1PFmO8krsYQM@dmsbgudgs'
+	'cloudinary config': 'cloudinary://288452951436584:eimuxfiKQUUqkyr1PFmO8krsYQM@dmsbgudgs',
+
+	'wysiwyg override toolbar': false,
+	'wysiwyg menubar': true
 
 });
 

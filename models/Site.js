@@ -17,7 +17,7 @@ Site.add({
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	category: { type: String },
-	site_url: { type: Types.Url, label: 'Site URL' },
+	site_url: { type: Types.Url, label: 'Site URL', index: true },
 	//all_reviews: { type: Types.Relationship, ref: 'Review', index: true },
 	content: {
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
