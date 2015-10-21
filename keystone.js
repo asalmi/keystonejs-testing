@@ -5,6 +5,25 @@ require('dotenv').load();
 // Require keystone
 var keystone = require('keystone');
 
+
+if (process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
+    keystone.set('mongo uri', process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+        process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+        process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+        process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+        process.env.OPENSHIFT_APP_NAME);
+}
+
+if (process.env.OPENSHIFT_MONGODB_DB_URL) {
+    keystone.set('mongo url', process.env.OPENSHIFT_MONGODB_DB_URL);
+}
+if (process.env.OPENSHIFT_NODEJS_IP) {
+  keystone.set('host', process.env.OPENSHIFT_NODEJS_IP);
+}
+if (process.env.OPENSHIFT_NODEJS_PORT) {
+  keystone.set('port', process.env.OPENSHIFT_NODEJS_PORT);
+}
+
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
@@ -56,7 +75,7 @@ keystone.set('routes', require('./routes'));
 keystone.set('nav', {
 	//'posts': ['posts', 'post-categories'],
 	'sites': 'sites',
-	'reviews': 'reviews',
+	'reviews': ['reviews', 'admin-reviews'],
 	'nodes': 'nodes',
 	//'galleries': 'galleries',
 	//'enquiries': 'enquiries',

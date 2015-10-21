@@ -11,7 +11,8 @@ exports = module.exports = function(req, res) {
     post: req.params.post
   };
   locals.data = {
-    reviews: []
+    reviews: [],
+    adminReviews: []
   };
   
   // Load the current post
@@ -35,6 +36,21 @@ exports = module.exports = function(req, res) {
     keystone.list('Review').model.find().where('site_reviewed', locals.data.post.id ).sort('name').exec(function(err, results) {  
 
       locals.data.reviews = results;
+
+      //console.log(results);
+
+      next(err);
+
+    });
+    
+  });
+
+  view.on('init', function(next) {
+    
+    //keystone.list('Site').model.find().populate('all_reviews').exec(function(err, results) {
+    keystone.list('Admin review').model.find().where('site_reviewed', locals.data.post.id ).sort('name').exec(function(err, results) {  
+
+      locals.data.adminReviews = results;
 
       //console.log(results);
 

@@ -31,8 +31,16 @@ block content
               li Category: #{data.post.category}
         .post
           != data.post.content.full
+    
     article
-      h3 Reviews
+      h3 Admin reviews
+      each adminreview in data.adminReviews
+        div: .well
+          h4= adminreview.title
+          != adminreview.content.extended
+
+    article
+      h3 User reviews
       each review in data.reviews
         div: .well
           h4= review.title
