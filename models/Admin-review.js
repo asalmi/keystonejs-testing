@@ -20,6 +20,10 @@ AdminReview.add({
 
 }, 'First impression', {
     questionaire1: {
+      q1: { type: Types.Number, label: 'Points'}
+    }
+}, 'Content', {
+    questionaire2: {
       q1: { type: Boolean, label: 'Tekstit hyvää yleiskieltä' },
       q2: { type: Boolean, label: 'Sisältöä jaoteltu ja rytmitetty kappaleilla ja otsikoilla' },
       q3: { type: Boolean, label: 'Tekstiä on helppo lukea' },
@@ -32,8 +36,30 @@ AdminReview.add({
       q10: { type: Boolean, label: 'Tallin sivuilta ei löydy "lorem ipsumia" tai muuta täytesisältöä (myös hevoslistausten "tyhjä kuva")' },
       q11: { type: Boolean, label: 'Arvostelija ei eksynyt "404 Not found" sivulle' },
     }
-}, 'Content', {
-    questionaire2: {
+}, 'Design', {
+    questionaire3: {
+      q1: { type: Boolean, label: 'Ulkoasu toimii työpöytä resoluutiolla (min: 00 x 00)' },
+      q2: { type: Boolean, label: 'Ulkoasu toimii mobiiliresoluutiolla (max: 00 x 00)' },
+      q3: { type: Boolean, label: 'Mobiiliresoluutiolla näkyy sama sisältö kuin työpöytäversiolla' },
+      q4: { type: Boolean, label: 'Ulkoasussa vähintään kaksi elementtiä: otsake (navi + otsikko) ja sisältö' },
+      q5: { type: Boolean, label: 'Etusivulta löytyy ylläpitäjän nimimerkki ja sähköpostiosoite' },
+      q6: { type: Boolean, label: 'Jokaiselta sivulta löytyy ylläpitäjän nimimerkki ja sähköpostiosoite' },
+      q7: { type: Boolean, label: 'Etusivulla mainintaan "virtuaalitalli"' },
+      q8: { type: Boolean, label: 'Jokaisella sivulla mainitaan "virtuaalitalli"' },
+      q9: { type: Boolean, label: 'Hevosen sivulla mainintaan "virtuaalihevonen"' },
+      q10: { type: Boolean, label: 'Navigaatio löytyy helposti' },
+      q11: { type: Boolean, label: 'Navigaation linkit kuvaavia ja ne toimivat ' },
+      q12: { type: Boolean, label: 'Sisältöosuudella tarpeeksi leveä alue, mutta se ei levähdä koko resuluution mittaiseksi ' },
+      q13: { type: Boolean, label: 'Jos sivu on pitkä löytyy vähintään sivun alaosasta "takaisin ylös" linkki' },
+      q14: { type: Boolean, label: 'Design tasapainoinen' },
+      q15: { type: Boolean, label: 'Grafiikka laadultaan hyvä, ei pikselöintiä havaittavissa' },
+      q16: { type: Boolean, label: 'Mahdollisista koristekuvista löytyy klikatessa isomman resoluution versio' },
+      q17: { type: Boolean, label: 'Sivu latautumisaika on alle 10s (yhteyden nopeus)' },
+      q18: { type: Boolean, label: 'Sivu latautumisaika on alle 10s (3G nopeudella)' }
+
+    }
+}, 'Activity', {
+    questionaire4: {
       q1: { type: Boolean, label: 'plaa' }
     }
 }, 'Summary', {
